@@ -30,7 +30,7 @@ const data = {
       name: 'Virtual Reality Headset',
       slug: 'VR-headset',
       category: 'Technology',
-      image: '/images/VR.jpg',
+      image: '/images/VR-headset.jpg',
       price: 259.99,
       stock: 5,
       brand: 'Oculus',
@@ -40,3 +40,5 @@ const data = {
     },
   ],
 };
+
+export default data;
