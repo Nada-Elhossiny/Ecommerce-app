@@ -7,7 +7,13 @@ function App() {
     <BrowserRouter>
       <div>
         <header>
-          <Link to="/">Shopadora</Link>
+          <Navbar bg="dark" variant="dark">
+            <Container>
+              <LinkContainer to="/">
+                <Navbar.Brand>Shopadora</Navbar.Brand>
+              </LinkContainer>
+            </Container>
+          </Navbar>
         </header>
         <main>
           <Routes>
