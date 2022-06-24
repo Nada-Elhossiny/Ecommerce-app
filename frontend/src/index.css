@@ -19,8 +19,12 @@ header a {
 }
 */
 
+.site-container {
+  min-height: 100vh;
+}
+
 main {
-  padding: 1rem;
+  flex: 1;
 }
 
 .products {
