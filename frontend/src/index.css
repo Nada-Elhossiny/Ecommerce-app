@@ -7,18 +7,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Set the header style */
+/*
 header {
   background-color: cornflowerblue;
   padding: 1rem;
 }
-
-/* For everything inside the header */
 header a {
   color: white;
   font-weight: bold;
   text-decoration: none;
 }
+*/
 
 main {
   padding: 1rem;
