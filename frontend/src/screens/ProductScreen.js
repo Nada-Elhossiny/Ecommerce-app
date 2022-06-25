@@ -87,9 +87,9 @@ function ProductScreen() {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
-                    <Col>Availability: </Col>
+                    <Col>Availability:</Col>
                     <Col>
-                      {product.countInStock > 0 ? (
+                      {product.stock > 0 ? (
                         <Badge bg="success">In Stock</Badge>
                       ) : (
                         <Badge bg="danger">Out of Stock</Badge>
@@ -98,7 +98,7 @@ function ProductScreen() {
                   </Row>
                 </ListGroup.Item>
 
-                {product.countInStock > 0 && (
+                {product.stock > 0 && (
                   <ListGroup.Item>
                     <div className="d-grid">
                       <Button variant="primary">Add to Cart</Button>
