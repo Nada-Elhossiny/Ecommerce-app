@@ -8,7 +8,7 @@ const data = {
       category: 'Home-Decor',
       image: '/images/lamp.jpg',
       price: 29.99,
-      stock: 10,
+      stock: 0,
       brand: 'Brightworld',
       rating: 4.8,
       numReviews: 134,
