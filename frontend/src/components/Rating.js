@@ -1,5 +1,5 @@
 function Rating(props) {
-  const { rating, numReviews } = props;
+  const { rating } = props;
   return (
     <div className="rating">
       <span>
@@ -52,7 +52,7 @@ function Rating(props) {
             rating >= 5
               ? 'fas fa-star'
               : rating >= 4.5
-              ? 'fas fa-start-half-alt'
+              ? 'fas fa-star-half-alt'
               : 'far fa-star'
           }
         />

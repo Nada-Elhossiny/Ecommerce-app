@@ -27,7 +27,7 @@ const data = {
       description: 'Blush Pink Floral Maxi Dress',
     },
     {
-      name: 'Virtual Reality Headset',
+      name: 'VR Headset',
       slug: 'VR-headset',
       category: 'Technology',
       image: '/images/VR-headset.jpg',
