@@ -27,6 +27,11 @@ main {
   flex: 1;
 }
 
+.btn-primary {
+  background-color: cornflowerblue;
+  color: white;
+}
+
 .products {
   display: flex;
   flex-wrap: wrap;
