@@ -23,7 +23,7 @@ const data = {
       stock: 20,
       brand: 'Lulus',
       rating: 4.5,
-      numReviews: 1500,
+      numReviews: 602,
       description: 'Blush Pink Floral Maxi Dress',
     },
     {

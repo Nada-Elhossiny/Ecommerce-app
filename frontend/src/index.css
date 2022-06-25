@@ -33,6 +33,10 @@ main {
   justify-content: center;
 }
 
+.rating span {
+  color: #ffc000;
+}
+
 .product {
   border: 1px black solid;
   margin: 1rem;
