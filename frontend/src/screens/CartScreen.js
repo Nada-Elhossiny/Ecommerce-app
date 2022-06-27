@@ -74,6 +74,17 @@ export default function CartScreen() {
                   {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
                 </h3>
               </ListGroup>
+              <ListGroup.Item>
+                <div className="d-grid">
+                  <Button
+                    type="button"
+                    variant="primary"
+                    disabled={cartItems.length === 0}
+                  >
+                    Proceed to Checkout
+                  </Button>
+                </div>
+              </ListGroup.Item>
             </Card.Body>
           </Card>
         </Col>
