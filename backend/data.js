@@ -3,6 +3,7 @@
 const data = {
   products: [
     {
+      _id: '1',
       name: 'Moon Lamp',
       slug: 'moon-lamp',
       category: 'Home-Decor',
@@ -15,6 +16,7 @@ const data = {
       description: 'Lunar lamp with wooden stand',
     },
     {
+      _id: '2',
       name: 'Floral Maxi Dress',
       slug: 'floral-maxi-dress',
       category: 'Clothing',
@@ -27,6 +29,7 @@ const data = {
       description: 'Blush Pink Floral Maxi Dress',
     },
     {
+      _id: '3',
       name: 'VR Headset',
       slug: 'VR-headset',
       category: 'Technology',
