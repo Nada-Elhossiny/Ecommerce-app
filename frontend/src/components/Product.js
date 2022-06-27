@@ -43,7 +43,13 @@ function Product(props) {
           numReviews={product.numReviews}
         ></Rating>
         <Card.Text>${product.price}</Card.Text>
-        <Button onClick={() => addToCartHandler(product)}>Add to cart</Button>
+        {product.stock === 0 ? (
+          <Button variant="danger" disabled>
+            Out of Stock
+          </Button>
+        ) : (
+          <Button onClick={() => addToCartHandler(product)}>Add to cart</Button>
+        )}
       </Card.Body>
     </Card>
   );
