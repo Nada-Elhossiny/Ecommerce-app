@@ -28,7 +28,7 @@ main {
 }
 
 .btn-primary {
-  background-color: darkred;
+  background-color: rgb(71, 152, 71);
   color: white;
 }
 
@@ -58,4 +58,8 @@ main {
 
 .img-large {
   max-width: 100%;
+}
+
+.img-thumbnail {
+  height: 80px;
 }
