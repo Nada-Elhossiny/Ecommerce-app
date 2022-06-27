@@ -9,7 +9,7 @@ const data = {
       image: '/images/lamp.jpg',
       price: 29.99,
       stock: 0,
-      brand: 'Brightworld',
+      brand: 'Bright',
       rating: 4.8,
       numReviews: 134,
       description: 'Lunar lamp with wooden stand',
