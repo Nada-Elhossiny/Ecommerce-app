@@ -3,7 +3,7 @@
 const data = {
   products: [
     {
-      name: 'Moon lamp',
+      name: 'Moon Lamp',
       slug: 'moon-lamp',
       category: 'Home-Decor',
       image: '/images/lamp.jpg',
