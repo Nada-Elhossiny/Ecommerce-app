@@ -49,9 +49,11 @@ export default function CartScreen() {
                       </Button>{' '}
                     </Col>
                     <Col md={3}>${item.price}</Col>
-                    <Button variant="light">
-                      <i className="fas fa-trash"></i>
-                    </Button>
+                    <Col md={2}>
+                      <Button variant="light">
+                        <i className="fas fa-trash"></i>
+                      </Button>
+                    </Col>
                   </Row>
                 </ListGroup.Item>
               ))}
