@@ -1,4 +1,4 @@
-import { Button } from 'bootstrap';
+import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import { Helmet } from 'react-helmet-async';
@@ -28,7 +28,7 @@ export default function SignInScreen() {
         </div>
         <div ClassName="mb-3">
           New to Shopadora?{' '}
-          <Link to={`signup?redirect=${redirect}`}>Create a New Account</Link>
+          <Link to={`/signup?redirect=${redirect}`}>Create a New Account</Link>
         </div>
       </Form>
     </Container>
