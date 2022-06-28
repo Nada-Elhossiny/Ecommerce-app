@@ -1,4 +1,13 @@
+import { Button } from 'bootstrap';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import { Helmet } from 'react-helmet-async';
+import { Link, useLocation } from 'react-router-dom';
+
 export default function SignInScreen() {
+  const { search } = useLocation();
+  const redirectURL = new URLSearchParams(search).get('redirect');
+  const redirect = redirectURL ? redirectURL : '/';
   return (
     <Container className="small-container">
       <Helmet>
@@ -16,6 +25,10 @@ export default function SignInScreen() {
         </Form.Group>
         <div className="mb-3">
           <Button type="submit">Sign In</Button>
+        </div>
+        <div ClassName="mb-3">
+          New to Shopadora?{' '}
+          <Link to={`signup?redirect=${redirect}`}>Create a New Account</Link>
         </div>
       </Form>
     </Container>
