@@ -1,19 +1,22 @@
 import { Axios } from 'axios';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import { Helmet } from 'react-helmet-async';
-import { Link, useLocation } from 'react-router-dom';
-import data from '../data';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Store } from '../Store';
 
 export default function SignInScreen() {
+  const navigate = useNavigate();
   const { search } = useLocation();
   const redirectURL = new URLSearchParams(search).get('redirect');
   const redirect = redirectURL ? redirectURL : '/';
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const { state, dispatch: ctxDispatch } = useContext(Store);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -22,9 +25,14 @@ export default function SignInScreen() {
         email,
         password,
       });
-    } catch (err) {}
+      localStorage.setItem('userInfo', JSON.stringify(data));
+      ctxDispatch({ type: 'USER_SIGNIN', payload: data });
+      navigate(redirect || '/');
+    } catch (err) {
+      alert('Invalid email or password');
+    }
   };
-  console.log(data);
+
   return (
     <Container className="small-container">
       <Helmet>
