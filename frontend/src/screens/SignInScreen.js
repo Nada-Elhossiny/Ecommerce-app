@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -17,6 +17,7 @@ export default function SignInScreen() {
   const [password, setPassword] = useState('');
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { userInfo } = state;
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -32,6 +33,12 @@ export default function SignInScreen() {
       alert('Invalid email or password');
     }
   };
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, redirect, userInfo]);
 
   return (
     <Container className="small-container">
