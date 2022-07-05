@@ -1,4 +1,4 @@
-import { Axios } from 'axios';
+import Axios from 'axios';
 import { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
