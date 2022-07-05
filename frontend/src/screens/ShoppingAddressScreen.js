@@ -7,8 +7,8 @@ export default function ShoppingAddressScreen() {
   const [fullName, setFullName] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
-  const [postalCode, setPostalCode] = useState('');
   const [country, setCountry] = useState('');
+  const [postalCode, setPostalCode] = useState('');
   const submitHandler = (e) => {
     e.preventDefault();
   };
@@ -16,9 +16,9 @@ export default function ShoppingAddressScreen() {
   return (
     <div>
       <Helmet>
-        <title>Shipping Address</title>
+        <title>Shipping Details</title>
       </Helmet>
-      <h1 className="my-3">Shipping Address</h1>
+      <h1 className="my-3">Shipping Details</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group className="my-3" controlId="fullName">
           <Form.Label>Full Name</Form.Label>
@@ -44,19 +44,19 @@ export default function ShoppingAddressScreen() {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controId="postalCode">
-          <Form.Label>Postal Code</Form.Label>
-          <Form.Control
-            value={address}
-            onChange={(e) => setPostalCode(e.target.value)}
-            required
-          />
-        </Form.Group>
         <Form.Group className="mb-3" controId="country">
           <Form.Label>Country</Form.Label>
           <Form.Control
             value={address}
             onChange={(e) => setCountry(e.target.value)}
+            required
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controId="postalCode">
+          <Form.Label>Postal Code</Form.Label>
+          <Form.Control
+            value={address}
+            onChange={(e) => setPostalCode(e.target.value)}
             required
           />
         </Form.Group>
