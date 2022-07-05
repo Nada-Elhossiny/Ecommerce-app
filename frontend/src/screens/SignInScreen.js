@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { Store } from '../Store';
 
 export default function SignInScreen() {
@@ -30,7 +31,7 @@ export default function SignInScreen() {
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       navigate(redirect || '/');
     } catch (err) {
-      alert('Invalid email or password');
+      toast.error('Invalid email or password');
     }
   };
 
