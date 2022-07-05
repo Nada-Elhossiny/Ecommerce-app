@@ -16,6 +16,11 @@ function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
 
+  const signoutHandler = () => {
+    ctxDispatch({ type: 'USER_SIGNOUT' });
+    localStorage.removeItem('userInfo');
+  };
+
   return (
     <BrowserRouter>
       <div className="d-flex flex-column site-container">
@@ -42,6 +47,14 @@ function App() {
                     <LinkContainer to="/orderhistory">
                       <NavDropdown.Item>Order History</NavDropdown.Item>
                     </LinkContainer>
+                    <NavDropdown.Divider />
+                    <Link
+                      className="dropdown-item"
+                      to="#signout"
+                      onClick={signoutHandler}
+                    >
+                      Sign Out
+                    </Link>
                   </NavDropdown>
                 ) : (
                   <Link className="nav-link" to="/signin">
