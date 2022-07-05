@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Store } from '../Store';
+import { getError } from '../utils';
 
 export default function SignInScreen() {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ export default function SignInScreen() {
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       navigate(redirect || '/');
     } catch (err) {
-      toast.error('Invalid email or password');
+      toast.error(getError(err));
     }
   };
 
