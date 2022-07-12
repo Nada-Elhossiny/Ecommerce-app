@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useReducer } from 'react';
 import CheckoutPath from '../components/CheckoutPath';
 import CartScreen from './CartScreen';
 import Row from 'react-bootstrap/Row';
@@ -9,9 +9,30 @@ import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Store } from '../Store';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { getError } from '../utils';
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'CREATE_REQUEST':
+      return { ...state, loading: true };
+    case 'CREATE_SUCCESS':
+      return { ...state, loading: false };
+    case 'CREATE_FAIL':
+      return { ...state, loading: false };
+    default:
+      return state;
+  }
+};
 
 export default function PlaceOrderScreen() {
   const navigate = useNavigate();
+
+  const [{ loading, error }, dispatch] = useReducer(reducer, {
+    loading: false,
+    error: '',
+  });
+
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
 
@@ -23,7 +44,13 @@ export default function PlaceOrderScreen() {
   cart.taxPrice = roundToTwo(0.13 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
-  const placeOrderHandler = async () => {};
+  const placeOrderHandler = async () => {
+    try {
+    } catch (err) {
+      dispatch({ type: 'CREATE_FAIL' });
+      toast.error(getError(err));
+    }
+  };
 
   useEffect(() => {
     if (!cart.paymentMethod) {
