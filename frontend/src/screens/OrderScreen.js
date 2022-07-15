@@ -3,7 +3,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { Store } from '../Store';
 import { useNavigate, useParams } from 'react-router-dom';
-import Axios from 'axios';
+import axios from 'axios';
 import { getError } from '../utils';
 import { Helmet } from 'react-helmet-async';
 import Row from 'react-bootstrap/Row';
@@ -29,6 +29,7 @@ function reducer(state, action) {
 export default function OrderScreen() {
   const { state } = useContext(Store);
   const { userInfo } = state;
+
   const params = useParams();
   const { id: orderId } = params;
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ export default function OrderScreen() {
     const fetchOrder = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
-        const { data } = await Axios.get(`/api/orders/${orderId}`, {
+        const { data } = await axios.get(`/api/orders/${orderId}`, {
           headers: { authorization: `Bearer ${userInfo.token}` },
         });
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -75,16 +76,18 @@ export default function OrderScreen() {
             <Card.Body>
               <Card.Title>Shipping Information</Card.Title>
               <Card.Text>
-                <strong>Name:</strong> {order.shippingAddress.fullName} <br />
-                <strong>Address:</strong> {order.shippingAddress.address},
+                <strong>Name: </strong> {order.shippingAddress.fullName} <br />
+                <strong>Address: </strong> {order.shippingAddress.address},
                 {order.shippingAddress.city}, {order.shippingAddress.country},
                 {order.shippingAddress.postalCode}
               </Card.Text>
-              {order.isDelivered} ? (
-              <MessageBox variant="success">
-                Delivered at {order.deliveredAt}
-              </MessageBox>
-              ) : (<MessageBox variant="danger">Not Delivered</MessageBox>)
+              {order.isDelivered ? (
+                <MessageBox variant="success">
+                  Delivered at {order.deliveredAt}
+                </MessageBox>
+              ) : (
+                <MessageBox variant="danger">Not Delivered</MessageBox>
+              )}
             </Card.Body>
           </Card>
           <Card className="mb-3">
