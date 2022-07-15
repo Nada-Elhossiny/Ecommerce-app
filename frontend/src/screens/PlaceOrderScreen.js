@@ -11,7 +11,7 @@ import { Store } from '../Store';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getError } from '../utils';
-import { Axios } from 'axios';
+import Axios from 'axios';
 import LoadingBox from '../components/LoadingBox';
 
 const reducer = (state, action) => {
@@ -69,7 +69,7 @@ export default function PlaceOrderScreen() {
 
       ctxDispatch({ type: 'CART_CLEAR' });
       dispatch({ type: 'CREATE_SUCCESS' });
-      localStorage.remove('cartItems');
+      localStorage.removeItem('cartItems');
       navigate(`/order/${data.order._id}`);
     } catch (err) {
       dispatch({ type: 'CREATE_FAIL' });
