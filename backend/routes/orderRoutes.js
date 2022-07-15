@@ -1,14 +1,14 @@
 import express from 'express';
-import User from '../models/userModel.js';
-import { generateToken } from '../utils.js';
+import { isAuth } from '../utils.js';
 import expressAsyncHandler from 'express-async-handler';
+import Order from '../models/orderModel.js';
 
 const orderRouter = express.Router();
 orderRouter.post(
   '/',
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    const order = new Order({
+    const newOrder = new Order({
       orderItems: req.body.orderItems.map((x) => ({ ...x, product: x._id })),
       shippingAddress: req.body.shippingAddress,
       paymentMethod: req.body.paymentMethod,
@@ -18,6 +18,8 @@ orderRouter.post(
       totalPrice: req.body.totalPrice,
       user: req.body._id,
     });
+    const order = await newOrder.save();
+    res.status(201).send({ message: 'New Order Created', order });
   })
 );
 export default orderRouter;
