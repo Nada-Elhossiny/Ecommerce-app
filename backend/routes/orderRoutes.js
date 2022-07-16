@@ -2,7 +2,6 @@ import express from 'express';
 import { isAuth } from '../utils.js';
 import expressAsyncHandler from 'express-async-handler';
 import Order from '../models/orderModel.js';
-import { PromiseProvider } from 'mongoose';
 
 const orderRouter = express.Router();
 orderRouter.post(
