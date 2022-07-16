@@ -1,0 +1,21 @@
+{
+  "name": "ecommerce-app",
+  "version": "1.0.0",
+  "description": "MERN stack E-commerce website",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "start": "node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nada-Elhossiny/Ecommerce-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nada-Elhossiny/Ecommerce-app/issues"
+  },
+  "homepage": "https://github.com/Nada-Elhossiny/Ecommerce-app#readme"
+}
