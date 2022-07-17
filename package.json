@@ -4,8 +4,8 @@
   "description": "MERN stack E-commerce website",
   "main": "index.js",
   "scripts": {
-    "build": "cd backend && npm install && cd ../frontend && npm install && npm run build --legacy-peer-deps",
-    "start": "node backend/server.js",
+    "build": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "start": "node backend/server.js --legacy-peer-deps",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
